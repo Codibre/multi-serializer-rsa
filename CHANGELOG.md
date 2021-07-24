@@ -1,28 +1,11 @@
-# Changelog
-  All notable changes to this project will be documented in this file.
 
-  The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-  and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-
-  ## Next Release
-
-
-
--v2.0.0
-
-- Updating empty project for new standards
-
--v1.0.3
-
-- Adequation of configurations and project for a lib example
-
--v1.0.2
-
-- Updating libraries
-
-
--v1.0.1
-  Removing unneeded dependencies
-
--v1.0.0
-  First release
+## 0.0.3
+* a226789 streamfying serialize and deserialize
+## v0.0.2
+* 955e1f1 0.0.2
+* 5152eee fixing no decompress
+* 92b54b2 fixing references
+## v0.0.1
+* 3bfe7ce 0.0.1
+* 9a87704 first version
+* 754dac0 Initial commit
