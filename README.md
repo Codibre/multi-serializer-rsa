@@ -6,13 +6,38 @@
 [![Packages](https://david-dm.org/Codibre/multi-serializer-rsa.svg)](https://david-dm.org/Codibre/@multi-serializer/rsa)
 [![npm version](https://badge.fury.io/js/%40codibre%2Fmulti-serializer-rsa.svg)](https://badge.fury.io/js/%40codibre%2Fmulti-serializer-rsa)
 
-This library delivers a brotli compression using magic numbers as a prefix to the generated stream, so the compression is identifiable.
-The magic numbers are selecting following the proposal (here)[https://github.com/madler/brotli/blob/master/br-format-v3.txt], yet only the magic numbers was considered to it, so it is not a perfect implementation
+This library delivers a RSA serializer and deserializer, fit to be used with [multi-serializer](https://www.npmjs.com/package/multi-serializer);
 
 ## How to Install
 
 ```
 npm i @multi-serializer/rsa
+```
+
+## How to use
+
+By itself:
+
+```
+const rsa = new RsaStrategy({ key, type: 'public'});
+const serialized = await rsa.serialize(info); // this result is buffer
+
+const origin = await rsa.deserialize(incomingMessage); // this result is also a buffer
+```
+
+Or adding it in the strategy chain of [multi-serializer](https://www.npmjs.com/package/multi-serializer):
+
+```
+const serializer = new Serializer(
+    new JsonStrategy(),
+    new GzipStrategy(),
+    new RsaStrategy({ key, type: 'public'}),
+    new Base64Strategy(),
+);
+
+const serialized = await serializer.serialize(info);
+
+const origin = await serializer.deserialize(incomingMessage);
 ```
 
 ## License
