@@ -1,4 +1,4 @@
-[fluent-iterable - v0.0.1](../README.md) / RsaOptions
+[fluent-iterable - v0.0.2](../README.md) / RsaOptions
 
 # Interface: RsaOptions
 
