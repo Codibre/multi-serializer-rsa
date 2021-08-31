@@ -1,4 +1,4 @@
-[fluent-iterable - v0.0.2](../README.md) / RsaOptions
+[fluent-iterable - v0.1.0](../README.md) / RsaOptions
 
 # Interface: RsaOptions
 
@@ -9,6 +9,7 @@
 - [encryptionScheme](rsaoptions.md#encryptionscheme)
 - [key](rsaoptions.md#key)
 - [keyType](rsaoptions.md#keytype)
+- [mode](rsaoptions.md#mode)
 
 ## Properties
 
@@ -27,3 +28,9 @@ ___
 ### keyType
 
 • **keyType**: [*KeyType*](../enums/keytype.md)
+
+___
+
+### mode
+
+• `Optional` **mode**: SerializerMode

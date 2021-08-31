@@ -1,4 +1,4 @@
-[fluent-iterable - v0.0.2](../README.md) / KeyType
+[fluent-iterable - v0.1.0](../README.md) / KeyType
 
 # Enumeration: KeyType
 

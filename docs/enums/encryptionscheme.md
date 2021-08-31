@@ -1,4 +1,4 @@
-[fluent-iterable - v0.0.2](../README.md) / EncryptionScheme
+[fluent-iterable - v0.1.0](../README.md) / EncryptionScheme
 
 # Enumeration: EncryptionScheme
 

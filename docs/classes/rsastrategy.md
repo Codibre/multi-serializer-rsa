@@ -1,4 +1,4 @@
-[fluent-iterable - v0.0.2](../README.md) / RsaStrategy
+[fluent-iterable - v0.1.0](../README.md) / RsaStrategy
 
 # Class: RsaStrategy
 
@@ -35,11 +35,11 @@ Name | Type |
 
 ### deserialize
 
-• **deserialize**: (`content`: *Stream* \| Serialized) => *Promise*<Stream \| Serialized\>
+• **deserialize**: (`content`: *Stream* \| Serialized) => *Stream* \| Serialized \| *Promise*<Stream \| Serialized\>
 
 #### Type declaration:
 
-▸ (`content`: *Stream* \| Serialized): *Promise*<Stream \| Serialized\>
+▸ (`content`: *Stream* \| Serialized): *Stream* \| Serialized \| *Promise*<Stream \| Serialized\>
 
 #### Parameters:
 
@@ -47,7 +47,7 @@ Name | Type |
 :------ | :------ |
 `content` | *Stream* \| Serialized |
 
-**Returns:** *Promise*<Stream \| Serialized\>
+**Returns:** *Stream* \| Serialized \| *Promise*<Stream \| Serialized\>
 
 Implementation of: void
 
@@ -55,11 +55,11 @@ ___
 
 ### serialize
 
-• **serialize**: (`content`: *Stream* \| Serialized) => *Promise*<Serialized\>
+• **serialize**: (`content`: *Stream* \| Serialized) => Serialized \| *Promise*<Serialized\>
 
 #### Type declaration:
 
-▸ (`content`: *Stream* \| Serialized): *Promise*<Serialized\>
+▸ (`content`: *Stream* \| Serialized): Serialized \| *Promise*<Serialized\>
 
 #### Parameters:
 
@@ -67,6 +67,6 @@ Name | Type |
 :------ | :------ |
 `content` | *Stream* \| Serialized |
 
-**Returns:** *Promise*<Serialized\>
+**Returns:** Serialized \| *Promise*<Serialized\>
 
 Implementation of: void
