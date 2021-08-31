@@ -1,3 +1,4 @@
+import { SerializerMode, Serialized } from 'multi-serializer';
 import { KeyType, RsaStrategy } from '../../src';
 
 const priKey = `-----BEGIN RSA PRIVATE KEY-----
@@ -98,6 +99,127 @@ describe('index.ts', () => {
 		const privSerializer = new RsaStrategy({
 			key: priKey,
 			keyType: KeyType.private,
+		});
+
+		const encrypted = await privSerializer.serialize(req);
+		const original = await pubSerializer.deserialize(encrypted);
+
+		expect(original.toString()).toEqual(req);
+	});
+	it('should serialize with public and deserialize with private and sync mode', () => {
+		const req = JSON.stringify({
+			bar: 'abc',
+		});
+		const pubSerializer = new RsaStrategy({
+			key: pubKey,
+			keyType: KeyType.public,
+			mode: SerializerMode.SYNC,
+		});
+		const privSerializer = new RsaStrategy({
+			key: priKey,
+			keyType: KeyType.private,
+			mode: SerializerMode.SYNC,
+		});
+
+		const encrypted = pubSerializer.serialize(req) as Serialized;
+		const original = privSerializer.deserialize(encrypted);
+
+		expect(original.toString()).toEqual(req);
+	});
+
+	it('should serialize with private and deserialize with public and sync mode', () => {
+		const req = JSON.stringify({
+			bar: 'abc',
+		});
+		const pubSerializer = new RsaStrategy({
+			key: pubKey,
+			keyType: KeyType.public,
+			mode: SerializerMode.SYNC,
+		});
+		const privSerializer = new RsaStrategy({
+			key: priKey,
+			keyType: KeyType.private,
+			mode: SerializerMode.SYNC,
+		});
+
+		const encrypted = privSerializer.serialize(req) as Serialized;
+		const original = pubSerializer.deserialize(encrypted);
+
+		expect(original.toString()).toEqual(req);
+	});
+
+	it('should serialize with public and deserialize with private, serializing sync mode ad deserializing async mode', async () => {
+		const req = JSON.stringify({
+			bar: 'abc',
+		});
+		const pubSerializer = new RsaStrategy({
+			key: pubKey,
+			keyType: KeyType.public,
+			mode: SerializerMode.SYNC,
+		});
+		const privSerializer = new RsaStrategy({
+			key: priKey,
+			keyType: KeyType.private,
+		});
+
+		const encrypted = pubSerializer.serialize(req) as Serialized;
+		const original = await privSerializer.deserialize(encrypted);
+
+		expect(original.toString()).toEqual(req);
+	});
+
+	it('should serialize with private and deserialize with public, serializing sync mode ad deserializing async mode', async () => {
+		const req = JSON.stringify({
+			bar: 'abc',
+		});
+		const pubSerializer = new RsaStrategy({
+			key: pubKey,
+			keyType: KeyType.public,
+			mode: SerializerMode.SYNC,
+		});
+		const privSerializer = new RsaStrategy({
+			key: priKey,
+			keyType: KeyType.private,
+		});
+
+		const encrypted = privSerializer.serialize(req) as Serialized;
+		const original = await pubSerializer.deserialize(encrypted);
+
+		expect(original.toString()).toEqual(req);
+	});
+
+	it('should serialize with public and deserialize with private, serializing async mode ad deserializing sync mode', async () => {
+		const req = JSON.stringify({
+			bar: 'abc',
+		});
+		const pubSerializer = new RsaStrategy({
+			key: pubKey,
+			keyType: KeyType.public,
+		});
+		const privSerializer = new RsaStrategy({
+			key: priKey,
+			keyType: KeyType.private,
+			mode: SerializerMode.SYNC,
+		});
+
+		const encrypted = await pubSerializer.serialize(req);
+		const original = await privSerializer.deserialize(encrypted);
+
+		expect(original.toString()).toEqual(req);
+	});
+
+	it('should serialize with private and deserialize with public, serializing async mode ad deserializing sync mode', async () => {
+		const req = JSON.stringify({
+			bar: 'abc',
+		});
+		const pubSerializer = new RsaStrategy({
+			key: pubKey,
+			keyType: KeyType.public,
+		});
+		const privSerializer = new RsaStrategy({
+			key: priKey,
+			keyType: KeyType.private,
+			mode: SerializerMode.SYNC,
 		});
 
 		const encrypted = await privSerializer.serialize(req);

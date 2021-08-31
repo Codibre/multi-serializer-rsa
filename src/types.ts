@@ -1,3 +1,5 @@
+import { SerializerMode } from 'multi-serializer';
+
 export enum EncryptionScheme {
 	pkcs1Oaep = 'pkcs1_oaep',
 	pkcs1 = 'pkcs1',
@@ -14,4 +16,5 @@ export interface RsaOptions {
 	key: Key;
 	keyType: KeyType;
 	encryptionScheme?: EncryptionScheme;
+	mode?: SerializerMode;
 }
